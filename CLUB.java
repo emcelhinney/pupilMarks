@@ -1,3 +1,19 @@
+public class CLUB
+{
+
+   public CLUB()
+   {
+
+   }
+
+   // top level algorithm
+   public void processMembers()
+   {
+
+   }
+
+
+}
 public class PUPIL
 {
     //list of properties
