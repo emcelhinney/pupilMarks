@@ -49,6 +49,10 @@ public class SCHOOL
                 MaxDataPosition = 1;
             }
         }
+
+    
+        System.out.print("Top Mark is" + maxDataPosition)
+        dataList[maxDataPosition].displayData();
+        System.out.println();
     }
-    System.out.println("Top Mark is" + maxDataPosition)
 }
