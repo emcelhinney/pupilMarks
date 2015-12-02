@@ -1,31 +1,18 @@
-public class CLUB
-{
 
-   public CLUB()
-   {
-
-   }
-
-   // top level algorithm
-   public void processMembers()
-   {
-
-   }
-
-
-}
 public class PUPIL
 {
     //list of properties
     private String fname;
     private String sname;
-    private float pupilmark; 
+    private int pupilmark;
+    private int topmark;
     public PUPIL()
     {
       // initialise instance variables
       fname = "";
       sname = "";
-      pupilmark = 0.0f;
+      pupilmark = 0;
+      topmark = 0;
     }
     // file handling store details from file
     public void readPupilDetails(String dataItems)
@@ -35,7 +22,7 @@ public class PUPIL
         // store each data item as instance property
         fname = rowItems[0];
         sname = rowItems[1];
-        pupilmark = Float.parseFloat(rowItems[2]);
+        pupilmark = Integer.parseInt(rowItems[2]);
     }
     public String writeDetails()
     { 
@@ -46,7 +33,7 @@ public class PUPIL
         pupilData = pupilData.concat(",");
         pupilData = pupilData.concat(sname);
         pupilData = pupilData.concat(",");
-        pupilData = pupilData.concat(Float.toString(pupilmark));
+        pupilData = pupilData.concat(Integer.toString(pupilmark));
         return pupilData;
     }
 }
