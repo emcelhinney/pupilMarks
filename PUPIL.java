@@ -5,14 +5,14 @@ public class PUPIL
     private String fname;
     private String sname;
     private int pupilmark;
-    private int topmark;
+
     public PUPIL()
     {
-      // initialise instance variables
-      fname = "";
-      sname = "";
-      pupilmark = 0;
-      topmark = 0;
+        // initialise instance variables
+        fname = "";
+        sname = "";
+        pupilmark = 0;
+      
     }
     // file handling store details from file
     public void readPupilDetails(String dataItems)
@@ -24,6 +24,7 @@ public class PUPIL
         sname = rowItems[1];
         pupilmark = Integer.parseInt(rowItems[2]);
     }
+
     public String writeDetails()
     { 
         // join up data into a string to output as a row
@@ -35,5 +36,18 @@ public class PUPIL
         pupilData = pupilData.concat(",");
         pupilData = pupilData.concat(Integer.toString(pupilmark));
         return pupilData;
+    }
+
+    public int getpupilmark()
+    {
+        return pupilmark;
+    }
+
+    public void displayDetails()
+    {
+        // output basic details
+        System.out.print("Pupil:" + fname +" " + sname);
+        System.out.print("pupil mark is " + pupilmark);
+        System.out.println();
     }
 }

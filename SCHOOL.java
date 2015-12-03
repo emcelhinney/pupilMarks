@@ -6,10 +6,12 @@ public class SCHOOL
     private PUPIL pupilList[];
     //number of pupil to be called
     int noOfPupils;
-    FILEREADCSV pupilmark;
+    FILEREADCSV pupilmarkfile;
+    private int topmark;
+    private int maxDataPosition;
     public SCHOOL()
     {
-        pupilmark = new FILEREADCSV();
+        pupilmarkfile = new FILEREADCSV();
     }
 
     // top level algorithm
@@ -27,7 +29,7 @@ public class SCHOOL
         System.out.println("School: Pupil mark update");
         System.out.println("** Preparing to read data file");
         // read file, fetch data as String array containing the rows
-        String[] dataRows = pupilmark.readCSVtable ();
+        String[] dataRows = pupilmarkfile.readCSVtable ();
         // calculate the number of member rows, skip headings
         noOfPupils = dataRows.length - 1;
         // update user with number of rows with pupil details
@@ -44,15 +46,15 @@ public class SCHOOL
     {
         for (int i = 0; i < noOfPupils; i++)
         {
-            if ((pupilList[i].getpupilmark() > PupilList [maxdataPosition].getData))
+            if (pupilList[i].getpupilmark() > pupilList [maxDataPosition].getpupilmark())
             {
-                MaxDataPosition = 1;
+                maxDataPosition = 1;
             }
         }
 
     
-        System.out.print("Top Mark is" + maxDataPosition)
-        dataList[maxDataPosition].displayData();
+        System.out.print("Top Mark is" + maxDataPosition);
+        pupilList[maxDataPosition].displayDetails();
         System.out.println();
     }
 }
