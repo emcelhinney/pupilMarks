@@ -19,7 +19,7 @@ public class SCHOOL
     {
 
         setUpPupilList();
-        countpupilmark();
+        findmaxData();
 
     }
 
@@ -31,29 +31,33 @@ public class SCHOOL
         // read file, fetch data as String array containing the rows
         String[] dataRows = pupilmarkfile.readCSVtable ();
         // calculate the number of member rows, skip headings
-        noOfPupils = dataRows.length - 1;
+        noOfPupils = dataRows.length ;
         // update user with number of rows with pupil details
         System.out.println("** " + noOfPupils + " rows read.\n\n");
         pupilList = new PUPIL [noOfPupils];
         for (int i = 0; i < noOfPupils; i++)
         {
             pupilList[i] = new PUPIL();
-            pupilList[i].readPupilDetails(dataRows[i=1]);
+            pupilList[i].readPupilDetails(dataRows[i]);
         }
     }
 
-    public void countpupilmark() throws IOException
-    {
-        for (int i = 0; i < noOfPupils; i++)
-        {
-            if (pupilList[i].getpupilmark() > pupilList [maxDataPosition].getpupilmark())
-            {
-                maxDataPosition = 1;
+    public void findmaxData()  {
+        // choose position of first value
+        int maxDataPosition = 0;
+
+        // repeat for the REST of the array
+        for (int i=1; i< noOfPupils; i++) {
+
+            //compare current value with best value
+            if (pupilList[i].getpupilmark() > pupilList[maxDataPosition].getpupilmark()) {
+                // update the position of the best value
+                maxDataPosition = i;
             }
         }
 
     
-        System.out.print("Top Mark is" + maxDataPosition);
+        System.out.print("Top Mark:-" + maxDataPosition);
         pupilList[maxDataPosition].displayDetails();
         System.out.println();
     }
