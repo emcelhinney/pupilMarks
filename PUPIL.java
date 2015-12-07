@@ -47,7 +47,7 @@ public class PUPIL
     {
         // output basic details
         System.out.print("Pupil:" + fname +" " + sname);
-        System.out.print("pupil mark is " + pupilmark);
+        System.out.print(" pupil mark is " + pupilmark);
         System.out.println();
     }
 }

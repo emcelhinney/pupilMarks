@@ -7,6 +7,7 @@ public class SCHOOL
     //number of pupil to be called
     int noOfPupils;
     FILEREADCSV pupilmarkfile;
+    FILEWRITECSV resultfile;
     private int topmark;
     private int maxDataPosition;
     public SCHOOL()
