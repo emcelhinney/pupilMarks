@@ -13,6 +13,7 @@ public class SCHOOL
     public SCHOOL()
     {
         pupilmarkfile = new FILEREADCSV();
+        resultfile = new FILEWRITECSV();
     }
 
     // top level algorithm
@@ -43,10 +44,10 @@ public class SCHOOL
         }
     }
 
-    public void findmaxData()  {
+    public void findmaxData()  throws IOException{
         // choose position of first value
         int maxDataPosition = 0;
-
+        String fileContent = "";
         // repeat for the REST of the array
         for (int i=1; i< noOfPupils; i++) {
 
@@ -56,10 +57,19 @@ public class SCHOOL
                 maxDataPosition = i;
             }
         }
+        if (maxDataPosition>1)
+        {
+            fileContent = fileContent.concat("\n");
+        }
+        fileContent = fileContent.concat(pupilList[1].writeDetails());
 
-    
-        System.out.print("Top Mark:-" + maxDataPosition);
+        System.out.print("Top Pupil is:");
         pupilList[maxDataPosition].displayDetails();
         System.out.println();
+        
+        System.out.println("**Preparing to write data file.");
+        resultfile.writeCSVtable(fileContent);
+        System.out.println("**File Written and closed.");
+
     }
 }
